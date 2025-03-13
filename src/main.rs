@@ -19,7 +19,7 @@ async fn main() -> std::io::Result<()> {
         App::new().route("/ping", web::get().to(pong_header))
             .route("/*", web::get().to(pong_others))
     })
-        .bind(("127.0.0.1", port))?
+        .bind(("0.0.0.0", port))?
         .run()
         .await
 }
