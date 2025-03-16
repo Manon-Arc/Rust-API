@@ -15,7 +15,7 @@ II. [Prerequisites](#🔧-prerequisites)
 
 III. [Availables Features](#💡-availables-features)
 
-IV. [Entrypoints](#​📋​-entrypoints)
+IV. [Endpoints](#​📋​-endpoints)
   1. [Ping](#1-Ping)
   2. [Others](#2-Others)
 
@@ -39,7 +39,7 @@ VI. [Starting the project](#💻-project-start)
 ### 💡 Availables Features :
 This solution deserve a web API in Rust language with some entrypoints detailled below.
 
-### Entrypoints :
+### ​📋 Endpoints :
 
 #### 1. Ping :
 The entrypoint `/ping` will send the hearders of your request in json format.
