@@ -30,6 +30,7 @@ VI. [Starting the project](#💻-project-start)
 )](https://www.rust-lang.org/fr)
 [![React badge](https://img.shields.io/badge/Library-actix_web-e26af2)
 ](https://fr.react.dev)
+ ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=flat&logo=docker&logoColor=white)
 
 
 ### 🔧 Prerequisites :
@@ -70,7 +71,51 @@ cargo run
 ```
 
 #### 2. Access the API :
-Visit http://0.0.0.0:8080 in your web browser to access the API.
+Visit http://localhost:8080 in your web browser to access the API.
+
+## 💻 Use Docker for the project :
+
+### 1. Clone the Repository :
+```bash
+git clone https://github.com/Manon-Arc/Rust-API.git
+```
+
+### 2. Navigate to the Project Directory :
+```bash
+cd Expresse-API
+```
+
+### 3. Build the Docker Image :
+
+#### 1. Dockerfile Simple-stage :
+You can select [this Dockerfile](./Dockerfile) for a image in simple a stage version.
+
+
+```bash
+docker build -t api-rust:latest .
+```
+
+#### 2. Dockerfile Multi-stage :
+You can select [this Dockerfile](./Dockerfile2) for a image in a multi stage version.
+
+```bash
+docker build -t api-rust2:latest -f .\Dockerfile2 .
+```
+
+### 4 . Run the container : 
+
+```bash
+docker run -p 8080:8080 api-rust2
+```
+
+### 5. Scan the Dockerfile : 
+
+```bash
+trivy image api-rust | Out-File -FilePath resultats_scan.txt -Encoding utf8
+```
+You can vizualise the result of the scan in this files :
+- [Simple stage version Dockerfile](./resultats_scan.txt)
+- [Multi stage version Dockerfile2](./resultats_scan2.txt)
 
 
 **✅ Congratulation ! Your API is now available**

@@ -1,0 +1,18 @@
+FROM rust:slim-bullseye AS builder
+
+WORKDIR /app
+COPY Cargo.toml Cargo.lock ./
+COPY src ./src
+RUN cargo build --locked --release
+
+
+FROM debian:bullseye-slim AS app
+ARG APP_NAME=devops
+RUN useradd -r -s /usr/sbin/nologin devopsuser
+RUN chown devopsuser .
+RUN chmod 544 .
+
+USER devopsuser
+
+COPY --from=builder /app/target/release/$APP_NAME /bin/app
+CMD ["/bin/app"]
